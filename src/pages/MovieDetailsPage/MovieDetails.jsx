@@ -26,9 +26,8 @@ const MovieDetails = () => {
 
   const loader = loading ? <Spinner /> : null
   const errorMsg = error ? <p>Some error occures</p> : null
-  const movieContent = !loading ? (
+  const movieContent = !loading && !error ? (
     <>
-      <button onClick={goBack}>Go back</button>
       <Movie movie={movie} />
       <br />
       <hr />
@@ -41,6 +40,7 @@ const MovieDetails = () => {
     <div>
       { loader }
       { errorMsg }
+      <button onClick={goBack}>Go back</button>
       { movieContent}
     </div>
   )

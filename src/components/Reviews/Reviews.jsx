@@ -19,14 +19,13 @@ const Reviews = () => {
     //eslint-disable-next-line
   }, [movieId])
 
-  console.log(reviews)
   const loader = loading ? <Spinner /> : null
   const errorMsg = error ? <p>Error occured</p> : null
   return (
     <div className={styles.reviewsWrapper}>
       { loader }
       { errorMsg }
-      <ReviewList reviews={reviews}/>
+      { reviews.length > 0 ?<ReviewList reviews={reviews}/> : <h2>We don't have any reviews yet</h2> }
     </div>
   )
 }

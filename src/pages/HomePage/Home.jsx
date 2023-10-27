@@ -9,7 +9,6 @@ const Home = () => {
   
   async function doRequest () {
     const movies = await getTrendingMovies()
-    console.log(movies)
     setTrendingMovies(movies)
   } 
   
