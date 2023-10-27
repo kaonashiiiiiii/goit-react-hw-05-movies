@@ -5,7 +5,6 @@ import { useHttp } from "hooks/http.hook";
 const useMoviedbService = () => {
   const { loading, request, error, clearError } = useHttp()
   const _apiBase = 'https://api.themoviedb.org/3'
-  const _apiKey = '57494194ffbf831964cd3c7d8b2a23aa'
   const _apiAccessKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzQ5NDE5NGZmYmY4MzE5NjRjZDNjN2Q4YjJhMjNhYSIsInN1YiI6IjY1MzU0YjZlMmIyMTA4MDBlMjNjYzcyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DudEKgw6RZQrC7TLVUMDjozgWf2AB6wg_GVqFseoepM'
   const _requestOptions = {
     method: 'GET',
@@ -13,35 +12,6 @@ const useMoviedbService = () => {
       accept: 'application/json',
       Authorization: `Bearer ${_apiAccessKey}`
     }
-  }
-
-  /**
-   * transform url with the query params values
-   * @param {Array<Array>} paramsEntries 
-   * @param {String} url 
-   * @returns {<string<URL>>}
-   */
-  function transformUrlString (paramsEntries, url) {
-    paramsEntries.forEach((item) => {
-      let [key, value] = item
-      if (key === 'query') key = 'q'
-      let strToInject = `${key}=${value}`
-      url += `&${strToInject}`
-    })
-    return url
-  }
-
-  /**
-   * inject query params into url
-   * @param {Object} paramsObject 
-   * @returns {<string<URL>>}
-   */
-  function injectQueryParamsIntoUrl (url, paramsObject={}) {
-    const entries = Object.entries(paramsObject)
-    if (entries) {
-      url = transformUrlString(entries, url)
-    }
-    return url
   }
 
   async function getTrendingMovies () {
