@@ -1,0 +1,11 @@
+.reviewList li {
+  margin-top: 15px;
+}
+
+.reviewList li span {
+  font-weight: bold;
+  font-size: 20px;
+}
+.reviewList li p {
+  margin-top: 15px;
+}

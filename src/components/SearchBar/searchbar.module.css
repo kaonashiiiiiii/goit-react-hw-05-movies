@@ -1,0 +1,9 @@
+.searchInput {
+  width: 300px;
+  padding: 5px;
+}
+
+.searchButton {
+  padding: 5px;
+  cursor: pointer;
+}
