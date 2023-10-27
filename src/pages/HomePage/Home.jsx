@@ -18,7 +18,7 @@ const Home = () => {
   }, [])
 
   const loader = loading ? <Spinner /> : null
-  const errorMsg = error ? <p>Some error occures</p> : null
+  const errorMsg = error ? <h2>Error occured</h2> : null
   return (
     <div className={styles['home-wrapper']}>
       <h1>Trending today</h1>

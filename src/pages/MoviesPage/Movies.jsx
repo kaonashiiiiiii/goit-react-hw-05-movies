@@ -26,9 +26,8 @@ const Movies = () => {
     setSearchedMovies(searchData)
   }
 
-  console.log(seachedMovies)
   const loader = loading ? <Spinner /> : null
-  const errorMsg = error ? <p>Error occured</p> : null
+  const errorMsg = error ? <h2>Error occured</h2> : null
   return (
     <div className={styles.moviesWrapper}>
       <Searchbar setQueryParam={setQueryParam}/>

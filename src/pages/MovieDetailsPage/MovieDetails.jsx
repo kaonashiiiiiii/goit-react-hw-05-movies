@@ -25,7 +25,7 @@ const MovieDetails = () => {
   }
 
   const loader = loading ? <Spinner /> : null
-  const errorMsg = error ? <p>Some error occures</p> : null
+  const errorMsg = error ? <h2>Error occured</h2> : null
   const movieContent = !loading && !error ? (
     <>
       <Movie movie={movie} />
