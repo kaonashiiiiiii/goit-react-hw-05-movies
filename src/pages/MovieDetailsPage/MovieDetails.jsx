@@ -1,9 +1,10 @@
 import { Movie, MovieInfo, Spinner } from 'components'
 import React, { useEffect, useState } from 'react'
-import { Outlet, useNavigate, useParams } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import useMoviedbService from 'services/MoviedbService'
 
 const MovieDetails = () => {
+  const location = useLocation()
   const navigate = useNavigate()
   const { movieId } = useParams()
   const [movie, setMovie] = useState({})
@@ -21,7 +22,7 @@ const MovieDetails = () => {
   }, [movieId])
 
   function goBack () {
-    navigate(-1)
+    navigate(location.state || '/')
   }
 
   const loader = loading ? <Spinner /> : null

@@ -2,17 +2,18 @@ import React, { useState } from 'react'
 import styles from './searchbar.module.css'
 const Searchbar = ({ setQueryParam }) => {
   const [value, setValue] = useState('')
-  function doSearch () {
+  function onSubmit (e) {
+    e.preventDefault()
     const query = value.toLocaleLowerCase().trim()
     if (!query) return
     setQueryParam(query)
   }
 
   return (
-    <div>
+    <form onSubmit={onSubmit}>
       <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className={styles.searchInput}/>
-      <button onClick={doSearch} className={styles.searchButton}>Search</button>
-    </div>
+      <button type="submit" className={styles.searchButton}>Search</button>
+    </form>
   )
 }
 

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { Cast, Navbar, Reviews, Spinner } from '../../components'
 import styles from './app.module.css'
 
@@ -19,6 +19,7 @@ const App = () => {
             <Route path="cast" element={ <Cast />}/>
             <Route path="reviews" element={ <Reviews />}/>
           </Route>
+          <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
       </Suspense>
     </div>
